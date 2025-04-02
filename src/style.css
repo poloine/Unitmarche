@@ -82,13 +82,24 @@ h1 {
   justify-content: space-between;
   flex-grow: 1;
   align-items: center;
+  gap: 1rem;
+}
+
+#products-top-bar span {
+  flex-grow: 1;
+}
+
+#compteur-produits {
+  border-radius: 1em;
+  background-color: #646cff;
+  padding: 0 .8em;
 }
 
 #recherche, #tri {
   padding: .5rem;
 }
 
-#product-list {
+#liste-produits {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

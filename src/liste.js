@@ -68,7 +68,7 @@ function createProductRow(product, quantity) {
     <td>${product.nom}</td>
     <td>${product.prix_unitaire.toString().replace('.', ',')}</td>
     <td><input type="number" name="${product.nom.toLowerCase().replace(' ', '')}-input" value="${quantity}" min="1"/></td>
-    <td>${(Math.round(quantity * product.prix_unitaire*100)/100).toString().replace('.', ',')} €</td>
+    <td id="sous-total">${(Math.round(quantity * product.prix_unitaire*100)/100).toString().replace('.', ',')} €</td>
     <td><button class="delete-product-btn">Supprimer</button></td>
     `
 

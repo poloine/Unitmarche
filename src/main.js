@@ -146,7 +146,7 @@ function searchProducts() {
 
 document.getElementById("recherche").addEventListener("input", searchProducts);
 document.getElementById("tri").addEventListener("change", sortProducts);
-document.getElementById("#reset-filtres").addEventListener("click", resetFilter);
+document.getElementById("reset-filtres").addEventListener("click", resetFilter);
 
 resetFilter();
 cart = loadCart();

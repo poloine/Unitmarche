@@ -1,7 +1,4 @@
-let cart = {};
-let product_list = []
-let displayed_product_list = []
-
+import {loadCart, loadProductsFile} from "./common.js";
 
 /**
  * @typedef Product
@@ -11,40 +8,29 @@ let displayed_product_list = []
  */
 
 /**
- * Load cart from localStorage, or creates new cart
+ * User's cart
+ * @type {{key: String, value: Number}}
  */
-function loadCart() {
-    let existing_cart = JSON.parse(localStorage.getItem('cart'));
-    if (existing_cart) {
-        cart = existing_cart;
-    }
-    localStorage.setItem("cart", JSON.stringify(cart));
-}
+let cart = {};
+/**
+ * The product list
+ * @type {Product[]}
+ */
+let product_list = []
+
 
 /**
- * Load a list of product from the path given. If no file is found, return an empty list.
- * @param path {String} The path of the file to load.
- * @returns {Promise<Array>} Promise of the file loading
+ * The product list that is displayed
+ * @type {Product[]}
  */
-function loadProductsFile(path) {
-    return fetch(path)
-        .then(res => {
-            if (!res.ok) {
-                throw new Error('Failed to load products file.');
-            }
-            return res.json();
-        }).catch(err => {
-        console.error(err);
-        return [];
-    })
-}
+let displayed_product_list = []
 
 /**
  * Adds an entry in the cart for the product, then add it to the cart in localStorage
  * @param productName {String}
  */
 function addToCart(productName) {
-    if (!productName || !productName in product_list) {
+    if (!productName || !productName in product_list.map((product) => product.nom)) {
         return;
     }
 
@@ -54,7 +40,6 @@ function addToCart(productName) {
 
     cart[productName]++;
     localStorage.setItem("cart", JSON.stringify(cart));
-    console.log(JSON.parse(localStorage.getItem("cart")));
 }
 
 /**
@@ -86,7 +71,7 @@ function createProductCard(product) {
 
 /**
  * Display a list of product into an HTML element with id "liste-produits"
- * @param products {Array<Product>}An array of product
+ * @param products {Array<Product>} An array of product
  */
 function displayProducts(products) {
     let list = document.getElementById("liste-produits");
@@ -127,7 +112,7 @@ function sortProducts() {
 /**
  * Load products in HTML
  */
-function loadProducts() {
+function loadProductsAndDisplay() {
     loadProductsFile("public/liste_produits_quotidien.json").then((res) => {
         product_list = res;
         displayed_product_list = res;
@@ -159,13 +144,12 @@ function searchProducts() {
     displayProducts(displayed_product_list);
 }
 
-loadCart();
-
 document.getElementById("recherche").addEventListener("input", searchProducts);
 document.getElementById("tri").addEventListener("change", sortProducts);
 document.getElementById("#reset-filtres").addEventListener("click", resetFilter);
 
 resetFilter();
-loadProducts();
+cart = loadCart();
+loadProductsAndDisplay();
 
 

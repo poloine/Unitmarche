@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/shopping_cart.svg" />
+    <link rel="stylesheet" href="src/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unitmarche</title>
+</head>
+<body>
+<nav id="navbar">
+    <section id="title-section">
+        <img id="app-logo" src="public/shopping_cart.svg" alt="shopping cart icon"/>
+        <p id="title">Unitmarche</p>
+    </section>
+    <a href="/index.html" class="cart">Produits disponibles</a>
+</nav>
+<main id="app">
+    <h2>Ma liste de course</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Produit</th>
+                <th>Prix Unitaire (€)</th>
+                <th>Quantité</th>
+                <th>Sous-total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="liste-course-body">
+        <!-- Point d'insertion table -->
+        </tbody>
+    </table>
+    <section id="end-of-list">
+        <p id="total-general"></p>
+        <button id="vider-liste">Vider la liste</button>
+    </section>
+</main>
+<script type="module" src="/src/liste.js"></script>
+</body>
+</html>

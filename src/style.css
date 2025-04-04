@@ -69,11 +69,10 @@ main {
   flex-direction: column;
   padding: 2rem;
   width: 100%;
-  gap: 1rem;
+  gap: 2rem;
 }
 
-h1 {
-  font-size: 3.2em;
+h1, h2 {
   line-height: 1.1;
 }
 
@@ -104,7 +103,6 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  padding: 1rem;
 }
 
 .product-card {
@@ -112,7 +110,7 @@ h1 {
   flex-direction: column;
   padding: 2rem;
   gap: 1rem;
-  border: 1px solid lightgray;
+  border: 1px solid gray;
   border-radius: 1rem;
 }
 
@@ -142,6 +140,28 @@ button:focus-visible {
 
 .card {
   padding: 2em;
+}
+
+thead {
+  font-size: 1.25rem;
+}
+
+td, th {
+  padding: .5em;
+  text-align: center;
+}
+
+td input {
+  max-width: 8rem;
+  padding: .5em;
+  font-size: 1rem;
+  border-radius: .5rem;
+}
+
+#end-of-list {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
 }
 
 @media (prefers-color-scheme: light) {

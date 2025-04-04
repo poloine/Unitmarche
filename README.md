@@ -59,7 +59,8 @@ unitmarche/
 ├── liste.html               ← page de la liste de course
 ├── src/
 │   ├── main.js              ← script pour index.html
-│   └── liste.js             ← script pour liste.html
+│   ├── liste.js             ← script pour liste.html
+│   └── common.js            ← script pour fonctions partagées
 ├── package.json
 └── babel.config.js          ← script pour configurer babel (qui va servir à utilsier les import/export pour Jest)
 ```
